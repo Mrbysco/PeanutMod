@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PB"
+  ],
+  "key": {
+    "P": {
+      "item": "peanutcraft:peanut_butter"
+    },
+	"B": {
+      "item": "minecraft:bread"
+    }
+  },
+  "result": {
+    "item": "peanutcraft:peanut_butter_bread"
+  }
+}

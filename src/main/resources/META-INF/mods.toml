@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/Mrbysco/PeanutCraft/issues"
+
+[[mods]]
+modId="peanutcraft"
+version="${file.jarVersion}"
+displayName="PeanutCraft"
+displayURL="https://minecraft.curseforge.com/projects/PeanutCraft"
+authors="Mrbysco"
+description='''
+Just a mod about peanuts
+'''
+
+[[dependencies.peanutcraft]]
+modId="forge"
+mandatory=true
+versionRange="[28,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.peanutcraft]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.14.4]"
+ordering="NONE"
+side="BOTH"

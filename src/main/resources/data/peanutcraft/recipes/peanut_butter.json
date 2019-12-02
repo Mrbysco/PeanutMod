@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PMP"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+    "P": {
+      "item": "peanutcraft:peanut"
+    }
+  },
+  "result": {
+    "item": "peanutcraft:peanut_butter"
+  }
+}
