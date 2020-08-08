@@ -10,17 +10,23 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-// apply plugin: 'eclipse'
-// apply plugin: 'maven-publish'
 
-version = '1.0'
+version = "${version}"
 group = 'com.mrbysco.peanutcraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'PeanutCraft'
+archivesBaseName = "PeanutCraft-${mc_version}"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/generated/resources'
+        }
+    }
+}
+
 minecraft {
-    mappings channel: 'snapshot', version: '20191201-1.14.3'
+    mappings  channel: "${mcp_channel}", version: "${mcp_mappings}"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -69,7 +75,7 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'peanutcraft', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'peanutcraft', '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
 
             mods {
                 peanutcraft {
@@ -81,7 +87,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.1.96'
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

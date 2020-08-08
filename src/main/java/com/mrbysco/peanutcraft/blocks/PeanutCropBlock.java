@@ -1,6 +1,6 @@
 package com.mrbysco.peanutcraft.blocks;
 
-import com.mrbysco.peanutcraft.init.ModItems;
+import com.mrbysco.peanutcraft.init.ModRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
@@ -18,7 +18,7 @@ public class PeanutCropBlock extends CropsBlock {
     }
 
     protected IItemProvider getSeedsItem() {
-        return ModItems.peanut_seeds;
+        return ModRegistry.PEANUT_SEEDS.get();
     }
 
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
