@@ -8,7 +8,7 @@
       "item": "minecraft:wheat"
     },
 	"P": {
-      "item": "peanutcraft:peanut"
+      "tag": "forge:crops/peanut"
     }
   },
   "result": {

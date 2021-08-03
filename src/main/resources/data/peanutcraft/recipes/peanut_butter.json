@@ -8,7 +8,7 @@
       "item": "minecraft:milk_bucket"
     },
     "P": {
-      "item": "peanutcraft:peanut"
+      "tag": "forge:crops/peanut"
     }
   },
   "result": {

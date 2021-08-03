@@ -2,13 +2,12 @@ package com.mrbysco.peanutcraft.init;
 
 import com.mrbysco.peanutcraft.PeanutCraft;
 import com.mrbysco.peanutcraft.blocks.PeanutCropBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -18,7 +17,7 @@ public class ModRegistry {
 
     public static final RegistryObject<Block> PEANUT_CROP = BLOCKS.register("peanut_crop", () -> new PeanutCropBlock(Block.Properties.of(Material.PLANT).noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
 
-    public static final RegistryObject<Item> PEANUT_SEEDS = ITEMS.register("peanut_seeds", () -> new BlockNamedItem(PEANUT_CROP.get(), itemBuilder()));
+    public static final RegistryObject<Item> PEANUT_SEEDS = ITEMS.register("peanut_seeds", () -> new ItemNameBlockItem(PEANUT_CROP.get(), itemBuilder()));
     public static final RegistryObject<Item> PEANUT = ITEMS.register("peanut", () -> new Item(itemBuilder().food(ModFood.PEANUT)));
     public static final RegistryObject<Item> PEANUT_PIE = ITEMS.register("peanut_pie", () -> new Item(itemBuilder().food(ModFood.PEANUT_PIE)));
     public static final RegistryObject<Item> PEANUT_BUTTER = ITEMS.register("peanut_butter", () -> new Item(itemBuilder().food(ModFood.PEANUT_BUTTER)));

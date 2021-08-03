@@ -25,7 +25,7 @@ public class PeanutCraft {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientHandler::doClientStuff);
         });
     }

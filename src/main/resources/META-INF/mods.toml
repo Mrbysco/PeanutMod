@@ -1,7 +1,7 @@
 modLoader="javafml"
-loaderVersion="[34,)"
+loaderVersion="[37,)"
 issueTrackerURL="https://github.com/Mrbysco/PeanutCraft/issues"
-license="mit"
+license="MIT"
 
 [[mods]]
 modId="peanutcraft"
