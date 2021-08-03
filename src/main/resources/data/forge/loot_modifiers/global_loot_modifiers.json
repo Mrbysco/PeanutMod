@@ -1,7 +1,6 @@
 {
   "replace": false,
   "entries": [
-    "peanutcraft:peanuts_from_grass",
-    "peanutcraft:peanuts_from_tall_grass"
+    "peanutcraft:peanuts_from_grass"
   ]
 }

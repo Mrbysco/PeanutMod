@@ -5,8 +5,8 @@ import net.minecraft.item.ItemStack;
 
 public class ModTabs {
     public static final ItemGroup PEANUT_TAB = (new ItemGroup("peanutTab") {
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModRegistry.PEANUT.get());
         }
-    }).setTabPath("peanut_tab");
+    }).setRecipeFolderName("peanut_tab");
 }
