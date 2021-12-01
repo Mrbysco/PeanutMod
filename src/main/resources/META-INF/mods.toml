@@ -12,3 +12,9 @@ authors="Mrbysco"
 description='''
 Just a mod about peanuts
 '''
+[[dependencies.peanutcraft]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.17.1,1.18)"
+ordering="NONE"
+side="BOTH"
