@@ -18,35 +18,35 @@ import java.util.List;
 
 @EventBusSubscriber(modid = PeanutCraft.MOD_ID, bus = Bus.MOD)
 public class GrassDrops {
-    @SubscribeEvent
-    public static void registerModifiers(RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
-        event.getRegistry().register(
-                new GrassDropSerializer().setRegistryName(PeanutCraft.MOD_ID, "peanut_seeds_drops")
-        );
-    }
+	@SubscribeEvent
+	public static void registerModifiers(RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
+		event.getRegistry().register(
+				new GrassDropSerializer().setRegistryName(PeanutCraft.MOD_ID, "peanut_seeds_drops")
+		);
+	}
 
-    public static class GrassDropSerializer extends GlobalLootModifierSerializer<GrassDropModifier> {
-        @Override
-        public GrassDropModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] ailootcondition) {
-            return new GrassDropModifier(ailootcondition);
-        }
+	public static class GrassDropSerializer extends GlobalLootModifierSerializer<GrassDropModifier> {
+		@Override
+		public GrassDropModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] ailootcondition) {
+			return new GrassDropModifier(ailootcondition);
+		}
 
-        @Override
-        public JsonObject write(GrassDropModifier instance) {
-            return new JsonObject();
-        }
-    }
+		@Override
+		public JsonObject write(GrassDropModifier instance) {
+			return new JsonObject();
+		}
+	}
 
-    private static class GrassDropModifier extends LootModifier {
-        protected GrassDropModifier(LootItemCondition[] conditionsIn) {
-            super(conditionsIn);
-        }
+	private static class GrassDropModifier extends LootModifier {
+		protected GrassDropModifier(LootItemCondition[] conditionsIn) {
+			super(conditionsIn);
+		}
 
-        @Nonnull
-        @Override
-        protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-            generatedLoot.add(new ItemStack(ModRegistry.PEANUT_SEEDS.get()));
-            return generatedLoot;
-        }
-    }
+		@Nonnull
+		@Override
+		protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+			generatedLoot.add(new ItemStack(ModRegistry.PEANUT_SEEDS.get()));
+			return generatedLoot;
+		}
+	}
 }

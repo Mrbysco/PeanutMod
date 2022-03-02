@@ -10,28 +10,24 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Mod(PeanutCraft.MOD_ID)
 public class PeanutCraft {
-    public static final String MOD_ID = "peanutcraft";
+	public static final String MOD_ID = "peanutcraft";
 
-    public static final Logger LOGGER = LogManager.getLogger();
+	public PeanutCraft() {
+		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		eventBus.addListener(this::setup);
 
-    public PeanutCraft() {
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        eventBus.addListener(this::setup);
+		ModRegistry.BLOCKS.register(eventBus);
+		ModRegistry.ITEMS.register(eventBus);
 
-        ModRegistry.BLOCKS.register(eventBus);
-        ModRegistry.ITEMS.register(eventBus);
+		MinecraftForge.EVENT_BUS.register(this);
 
-        MinecraftForge.EVENT_BUS.register(this);
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientHandler::doClientStuff));
+	}
 
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientHandler::doClientStuff));
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        ModTags.initialize();
-    }
+	private void setup(final FMLCommonSetupEvent event) {
+		ModTags.initialize();
+	}
 }
