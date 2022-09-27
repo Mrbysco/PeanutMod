@@ -1,6 +1,6 @@
 {
-  "replace": false,
   "entries": [
     "peanutcraft:peanuts_from_grass"
-  ]
+  ],
+  "replace": false
 }
