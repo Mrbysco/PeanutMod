@@ -13,20 +13,20 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(PeanutCraft.MOD_ID)
 public class PeanutCraft {
-    public static final String MOD_ID = "peanutcraft";
+	public static final String MOD_ID = "peanutcraft";
 
-    public static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LogManager.getLogger();
 
-    public PeanutCraft() {
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	public PeanutCraft() {
+		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModRegistry.BLOCKS.register(eventBus);
-        ModRegistry.ITEMS.register(eventBus);
+		ModRegistry.BLOCKS.register(eventBus);
+		ModRegistry.ITEMS.register(eventBus);
 
-        MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(this);
 
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
-            FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientHandler::doClientStuff);
-        });
-    }
+		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+			FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientHandler::doClientStuff);
+		});
+	}
 }
