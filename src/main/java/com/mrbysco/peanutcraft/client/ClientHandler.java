@@ -7,6 +7,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientHandler {
 	public static void doClientStuff(final FMLClientSetupEvent event) {
-		RenderTypeLookup.setRenderLayer(ModRegistry.PEANUT_CROP.get(), RenderType.cutout());
+		RenderTypeLookup.setRenderLayer(ModRegistry.PEANUT_CROP.get(), RenderType.getCutout());
 	}
 }
