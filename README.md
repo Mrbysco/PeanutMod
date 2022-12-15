@@ -1,3 +1,6 @@
+[![build](https://github.com/Mrbysco/PeanutMod/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/PeanutMod/actions/workflows/build.yml)
+[![](http://cf.way2muchnoise.eu/versions/353490.svg)](https://www.curseforge.com/minecraft/mc-mods/peanutcraft)
+
 # PeanutCraft #
 
 ## About ##
