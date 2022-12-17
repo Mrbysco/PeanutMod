@@ -4,7 +4,7 @@ import com.mrbysco.peanutcraft.PeanutCraft;
 import com.mrbysco.peanutcraft.init.GrassDrops;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.Items;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.predicates.AlternativeLootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.InvertedLootItemCondition;
@@ -24,15 +24,15 @@ public class PeanutDataGen {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
-		generator.addProvider(event.includeServer(), new PeanutLootModifiers(generator));
+		PackOutput packOutput = generator.getPackOutput();
+
+		generator.addProvider(event.includeServer(), new PeanutLootModifiers(packOutput));
 	}
 
 	public static class PeanutLootModifiers extends GlobalLootModifierProvider {
-		public PeanutLootModifiers(DataGenerator generator) {
-			super(generator, PeanutCraft.MOD_ID);
+		public PeanutLootModifiers(PackOutput packOutput) {
+			super(packOutput, PeanutCraft.MOD_ID);
 		}
-
-		private static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
 
 		@Override
 		protected void start() {
