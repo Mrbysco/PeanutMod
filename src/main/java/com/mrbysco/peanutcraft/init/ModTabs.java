@@ -19,7 +19,7 @@ public class ModTabs {
 		PEANUT_TAB = event.registerCreativeModeTab(new ResourceLocation(PeanutCraft.MOD_ID, "tab"), builder ->
 				builder.icon(() -> new ItemStack(ModRegistry.PEANUT.get()))
 						.title(Component.translatable("itemGroup.peanutTab"))
-						.displayItems((features, output, hasPermissions) -> {
+						.displayItems((displayParameters, output) -> {
 							List<ItemStack> stacks = ModRegistry.ITEMS.getEntries().stream()
 									.filter(reg -> reg.get() instanceof BlockItem).map(reg -> new ItemStack(reg.get())).toList();
 							output.acceptAll(stacks);
