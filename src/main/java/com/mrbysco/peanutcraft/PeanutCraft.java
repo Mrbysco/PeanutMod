@@ -1,6 +1,7 @@
 package com.mrbysco.peanutcraft;
 
 import com.mrbysco.peanutcraft.init.ModRegistry;
+import com.mrbysco.peanutcraft.init.ModTabs;
 import com.mrbysco.peanutcraft.init.ModTags;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,9 +20,10 @@ public class PeanutCraft {
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		eventBus.addListener(this::setup);
 
+		eventBus.register(new ModTabs());
+
 		ModRegistry.BLOCKS.register(eventBus);
 		ModRegistry.ITEMS.register(eventBus);
-		ModRegistry.CREATIVE_MODE_TABS.register(eventBus);
 		ModRegistry.GLM.register(eventBus);
 
 		MinecraftForge.EVENT_BUS.register(this);

@@ -1,19 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "tag": "forge:crops/wheat"
-    },
-    "P": {
-      "tag": "forge:crops/peanut"
-    }
-  },
   "pattern": [
     "#P#"
   ],
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+	"P": {
+      "tag": "forge:crops/peanut"
+    }
+  },
   "result": {
     "item": "peanutcraft:peanut_bread"
-  },
-  "show_notification": true
+  }
 }
