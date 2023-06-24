@@ -1,8 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "PMP"
-  ],
+  "category": "misc",
   "key": {
     "M": {
       "item": "minecraft:milk_bucket"
@@ -11,7 +9,11 @@
       "tag": "forge:crops/peanut"
     }
   },
+  "pattern": [
+    "PMP"
+  ],
   "result": {
     "item": "peanutcraft:peanut_butter"
-  }
+  },
+  "show_notification": true
 }
