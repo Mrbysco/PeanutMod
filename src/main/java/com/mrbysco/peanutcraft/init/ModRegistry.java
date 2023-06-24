@@ -41,8 +41,7 @@ public class ModRegistry {
 			.icon(() -> new ItemStack(ModRegistry.PEANUT.get()))
 			.title(Component.translatable("itemGroup.peanutTab"))
 			.displayItems((displayParameters, output) -> {
-				List<ItemStack> stacks = ModRegistry.ITEMS.getEntries().stream()
-						.filter(reg -> reg.get() instanceof BlockItem).map(reg -> new ItemStack(reg.get())).toList();
+				List<ItemStack> stacks = ModRegistry.ITEMS.getEntries().stream().map(reg -> new ItemStack(reg.get())).toList();
 				output.acceptAll(stacks);
 			}).build());
 }
