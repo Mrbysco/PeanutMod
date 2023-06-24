@@ -6,7 +6,7 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.predicates.AlternativeLootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.InvertedLootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -39,7 +39,7 @@ public class PeanutDataGen {
 			this.add("peanuts_from_grass", new GrassDrops(new LootItemCondition[]{
 					LootItemRandomChanceCondition.randomChance(0.1F).build(),
 					InvertedLootItemCondition.invert(MatchTool.toolMatches(ItemPredicate.Builder.item().of(Tags.Items.SHEARS))).build(),
-					AlternativeLootItemCondition.alternative(
+					AnyOfCondition.anyOf(
 							LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.GRASS),
 							LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS),
 							LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.FERN),
