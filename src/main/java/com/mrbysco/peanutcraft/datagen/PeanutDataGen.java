@@ -6,9 +6,9 @@ import com.mrbysco.peanutcraft.datagen.server.PeanutLootProvider;
 import com.mrbysco.peanutcraft.datagen.server.PeanutRecipeProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PeanutDataGen {
@@ -20,7 +20,7 @@ public class PeanutDataGen {
 
 		generator.addProvider(event.includeServer(), new PeanutLootModifierProvider(packOutput));
 		generator.addProvider(event.includeServer(), new PeanutLootProvider(packOutput));
-		generator.addProvider(event.includeServer(), new PeanutRecipeProvider(packOutput));
+		generator.addProvider(event.includeServer(), new PeanutRecipeProvider(packOutput, event.getLookupProvider()));
 
 		generator.addProvider(event.includeClient(), new PeanutLanguageProvider(packOutput));
 	}

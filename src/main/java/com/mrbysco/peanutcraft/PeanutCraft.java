@@ -2,11 +2,10 @@ package com.mrbysco.peanutcraft;
 
 import com.mrbysco.peanutcraft.init.ModRegistry;
 import com.mrbysco.peanutcraft.init.ModTags;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,8 +22,6 @@ public class PeanutCraft {
 		ModRegistry.ITEMS.register(eventBus);
 		ModRegistry.CREATIVE_MODE_TABS.register(eventBus);
 		ModRegistry.GLM.register(eventBus);
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {

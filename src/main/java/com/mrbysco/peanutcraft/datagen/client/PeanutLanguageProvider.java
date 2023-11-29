@@ -3,7 +3,7 @@ package com.mrbysco.peanutcraft.datagen.client;
 import com.mrbysco.peanutcraft.PeanutCraft;
 import com.mrbysco.peanutcraft.init.ModRegistry;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class PeanutLanguageProvider extends LanguageProvider {
 	public PeanutLanguageProvider(PackOutput packOutput) {
