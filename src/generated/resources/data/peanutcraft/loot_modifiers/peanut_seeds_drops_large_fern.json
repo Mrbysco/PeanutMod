@@ -1,0 +1,13 @@
+{
+  "type": "peanutcraft:peanut_seeds_drops",
+  "conditions": [
+    {
+      "block": "minecraft:large_fern",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "chance": 0.1,
+      "condition": "minecraft:random_chance"
+    }
+  ]
+}

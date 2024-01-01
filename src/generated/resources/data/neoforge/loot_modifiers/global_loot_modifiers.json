@@ -1,6 +1,9 @@
 {
   "entries": [
-    "peanutcraft:peanuts_from_grass"
+    "peanutcraft:peanut_seeds_drops_fern",
+    "peanutcraft:peanut_seeds_drops_large_fern",
+    "peanutcraft:peanut_seeds_drops_short_grass",
+    "peanutcraft:peanut_seeds_drops_tall_grass"
   ],
   "replace": false
 }

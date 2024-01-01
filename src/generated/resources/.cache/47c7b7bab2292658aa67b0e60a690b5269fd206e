@@ -1,3 +1,6 @@
-// 1.20.2	2023-11-29T19:09:00.2764848	Global Loot Modifiers : peanutcraft
-47308e17e0daaf7c14a6f2a57919f68b022e3071 data/neoforge/loot_modifiers/global_loot_modifiers.json
-79d1049ad0c1074eca85941cad3091bff66e1dae data/peanutcraft/loot_modifiers/peanuts_from_grass.json
+// 1.20.4	2024-01-01T19:38:54.4805723	Global Loot Modifiers : peanutcraft
+be2ba2c34e62b86ed894e6daef5b487dcb301d5b data/neoforge/loot_modifiers/global_loot_modifiers.json
+cc909dafeea4b500fb60d5dee4648b03b0f8a3f1 data/peanutcraft/loot_modifiers/peanut_seeds_drops_fern.json
+4cef5511bcb448792fdebf97fa102619c2b73c67 data/peanutcraft/loot_modifiers/peanut_seeds_drops_large_fern.json
+5440c99345343b5b5791d51e7dae83e8fa074336 data/peanutcraft/loot_modifiers/peanut_seeds_drops_short_grass.json
+7ac1f66538302191c2dcd111b7b20291c8dca38b data/peanutcraft/loot_modifiers/peanut_seeds_drops_tall_grass.json

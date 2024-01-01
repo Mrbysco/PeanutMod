@@ -17,11 +17,13 @@ public class PeanutCropBlock extends CropBlock {
 		super(properties);
 	}
 
+	@Override
 	public ItemLike getBaseSeedId() {
 		return ModRegistry.PEANUT_SEEDS.get();
 	}
 
-	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		return SHAPES[state.getValue(this.getAgeProperty())];
 	}
 }

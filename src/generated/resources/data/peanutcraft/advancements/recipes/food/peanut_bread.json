@@ -28,6 +28,5 @@
     "recipes": [
       "peanutcraft:peanut_bread"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
