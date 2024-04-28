@@ -3,16 +3,17 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:eggs"
+      "tag": "c:eggs"
     },
     {
       "item": "minecraft:sugar"
     },
     {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     }
   ],
   "result": {
-    "item": "peanutcraft:peanut_pie"
+    "count": 1,
+    "id": "peanutcraft:peanut_pie"
   }
 }

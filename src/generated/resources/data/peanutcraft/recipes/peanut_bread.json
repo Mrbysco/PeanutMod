@@ -3,16 +3,17 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:crops/wheat"
+      "tag": "c:crops/wheat"
     },
     "P": {
-      "tag": "forge:crops/peanut"
+      "tag": "c:crops/peanut"
     }
   },
   "pattern": [
     "#P#"
   ],
   "result": {
-    "item": "peanutcraft:peanut_bread"
+    "count": 1,
+    "id": "peanutcraft:peanut_bread"
   }
 }

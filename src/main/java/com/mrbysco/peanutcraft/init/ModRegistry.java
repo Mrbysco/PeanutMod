@@ -1,6 +1,6 @@
 package com.mrbysco.peanutcraft.init;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mrbysco.peanutcraft.PeanutCraft;
 import com.mrbysco.peanutcraft.blocks.PeanutCropBlock;
 import net.minecraft.core.registries.Registries;
@@ -26,9 +26,9 @@ public class ModRegistry {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PeanutCraft.MOD_ID);
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PeanutCraft.MOD_ID);
 	public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PeanutCraft.MOD_ID);
-	public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> GLM = DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, PeanutCraft.MOD_ID);
+	public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> GLM = DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, PeanutCraft.MOD_ID);
 
-	public static final Supplier<Codec<? extends IGlobalLootModifier>> PEANUT_SEEDS_DROPS = GLM.register("peanut_seeds_drops", GrassDrops.CODEC);
+	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> PEANUT_SEEDS_DROPS = GLM.register("peanut_seeds_drops", GrassDrops.CODEC);
 	public static final DeferredBlock<PeanutCropBlock> PEANUT_CROP = BLOCKS.register("peanut_crop", () -> new PeanutCropBlock(Block.Properties.ofFullCopy(Blocks.WHEAT).noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)));
 
 	public static final DeferredItem<Item> PEANUT_SEEDS = ITEMS.register("peanut_seeds", () -> new ItemNameBlockItem(PEANUT_CROP.get(), (new Item.Properties())));

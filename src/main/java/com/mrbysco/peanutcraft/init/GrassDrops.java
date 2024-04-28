@@ -3,6 +3,7 @@ package com.mrbysco.peanutcraft.init;
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
@@ -13,8 +14,8 @@ import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 
 public class GrassDrops extends LootModifier {
-	public static final Supplier<Codec<GrassDrops>> CODEC = Suppliers.memoize(() ->
-			RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, GrassDrops::new)));
+	public static final Supplier<MapCodec<GrassDrops>> CODEC = Suppliers.memoize(() ->
+			RecordCodecBuilder.mapCodec(inst -> codecStart(inst).apply(inst, GrassDrops::new)));
 
 	public GrassDrops(LootItemCondition[] lootConditions) {
 		super(lootConditions);
@@ -27,7 +28,7 @@ public class GrassDrops extends LootModifier {
 	}
 
 	@Override
-	public Codec<? extends IGlobalLootModifier> codec() {
+	public MapCodec<? extends IGlobalLootModifier> codec() {
 		return ModRegistry.PEANUT_SEEDS_DROPS.get();
 	}
 }

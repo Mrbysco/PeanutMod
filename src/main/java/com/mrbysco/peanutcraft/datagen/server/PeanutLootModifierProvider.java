@@ -3,6 +3,7 @@ package com.mrbysco.peanutcraft.datagen.server;
 import com.mrbysco.peanutcraft.PeanutCraft;
 import com.mrbysco.peanutcraft.init.GrassDrops;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
@@ -16,10 +17,11 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class PeanutLootModifierProvider extends GlobalLootModifierProvider {
-	public PeanutLootModifierProvider(PackOutput packOutput) {
-		super(packOutput, PeanutCraft.MOD_ID);
+	public PeanutLootModifierProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+		super(packOutput, lookupProvider, PeanutCraft.MOD_ID);
 	}
 
 	@Override
