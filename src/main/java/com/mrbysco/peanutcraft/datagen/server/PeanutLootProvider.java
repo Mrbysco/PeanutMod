@@ -8,7 +8,6 @@ import net.minecraft.core.WritableRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -37,8 +35,8 @@ public class PeanutLootProvider extends LootTableProvider {
 
 	private static class PeanutBlocks extends BlockLootSubProvider {
 
-		protected PeanutBlocks() {
-			super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+		protected PeanutBlocks(HolderLookup.Provider provider) {
+			super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
 		}
 
 		@Override
