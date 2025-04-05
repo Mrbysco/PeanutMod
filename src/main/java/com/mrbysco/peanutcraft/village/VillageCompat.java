@@ -19,7 +19,7 @@ import java.util.List;
 public class VillageCompat {
 
 	public static void modifyVillageStructures(final ServerAboutToStartEvent event) {
-		Registry<StructureProcessorList> processorListRegistry = event.getServer().registryAccess().registry(Registries.PROCESSOR_LIST).orElseThrow();
+		Registry<StructureProcessorList> processorListRegistry = event.getServer().registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST);
 
 		StructureProcessor cropProcessor = new RuleProcessor(List.of(
 				new ProcessorRule(new RandomBlockMatchTest(Blocks.WHEAT, 0.1F), AlwaysTrueTest.INSTANCE, ModRegistry.PEANUT_CROP.get().defaultBlockState())

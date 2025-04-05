@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "M": {
-      "item": "minecraft:milk_bucket"
-    },
-    "P": {
-      "tag": "c:crops/peanut"
-    }
+    "M": "minecraft:milk_bucket",
+    "P": "#c:crops/peanut"
   },
   "pattern": [
     "PMP"

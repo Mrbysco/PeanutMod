@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "tag": "c:crops/wheat"
-    },
-    "P": {
-      "tag": "c:crops/peanut"
-    }
+    "#": "#c:crops/wheat",
+    "P": "#c:crops/peanut"
   },
   "pattern": [
     "#P#"

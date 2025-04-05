@@ -1,0 +1,59 @@
+package com.mrbysco.peanutcraft.datagen.client;
+
+import com.mrbysco.peanutcraft.PeanutCraft;
+import com.mrbysco.peanutcraft.init.ModRegistry;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.blockstates.Variant;
+import net.minecraft.client.data.models.blockstates.VariantProperties;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
+
+public class PeanutModelProvider extends ModelProvider {
+	public PeanutModelProvider(PackOutput output) {
+		super(output, PeanutCraft.MOD_ID);
+	}
+
+	@Override
+	protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+		createCropBlock(blockModels, ModRegistry.PEANUT_CROP.get(), BlockStateProperties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
+		itemModels.generateFlatItem(ModRegistry.PEANUT.get(), ModelTemplates.FLAT_ITEM);
+		itemModels.generateFlatItem(ModRegistry.PEANUT_PIE.get(), ModelTemplates.FLAT_ITEM);
+		itemModels.generateFlatItem(ModRegistry.PEANUT_BUTTER.get(), ModelTemplates.FLAT_ITEM);
+		itemModels.generateFlatItem(ModRegistry.PEANUT_BREAD.get(), ModelTemplates.FLAT_ITEM);
+		itemModels.generateFlatItem(ModRegistry.PEANUT_BUTTER_BREAD.get(), ModelTemplates.FLAT_ITEM);
+	}
+
+	public void createCropBlock(BlockModelGenerators blockModels, Block cropBlock, Property<Integer> ageProperty, int... ageToVisualStageMapping) {
+		if (ageProperty.getPossibleValues().size() != ageToVisualStageMapping.length) {
+			throw new IllegalArgumentException();
+		} else {
+			Int2ObjectMap<ResourceLocation> int2objectmap = new Int2ObjectOpenHashMap<>();
+			ExtendedModelTemplate cropTemplate = ModelTemplates.CROP.extend().renderType("cutout").build();
+			PropertyDispatch propertydispatch = PropertyDispatch.property(ageProperty)
+					.generate(
+							p_388091_ -> {
+								int i = ageToVisualStageMapping[p_388091_];
+								ResourceLocation resourcelocation = int2objectmap.computeIfAbsent(
+										i, p_387534_ -> blockModels.createSuffixedVariant(cropBlock, "_stage" + i,
+												cropTemplate, TextureMapping::crop)
+								);
+								return Variant.variant().with(VariantProperties.MODEL, resourcelocation);
+							}
+					);
+			blockModels.registerSimpleFlatItemModel(cropBlock.asItem());
+			blockModels.blockStateOutput.accept(MultiVariantGenerator.multiVariant(cropBlock).with(propertydispatch));
+		}
+	}
+}

@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:eggs"
-    },
-    {
-      "item": "minecraft:sugar"
-    },
-    {
-      "tag": "c:crops/peanut"
-    }
+    "#c:eggs",
+    "minecraft:sugar",
+    "#c:crops/peanut"
   ],
   "result": {
     "count": 1,

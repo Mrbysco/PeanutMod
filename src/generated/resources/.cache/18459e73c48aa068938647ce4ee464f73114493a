@@ -1,9 +1,9 @@
-// 1.21.1	2025-04-05T15:23:15.1069526	Recipes
+// 1.21.4	2025-04-05T16:40:08.2484002	PeanutCraft Recipes
 47214e3861e08f3610b0b348fd7b660bc3505042 data/peanutcraft/advancement/recipes/food/peanut_bread.json
 ccee6b6c93e1ebffe51ef387d65c87fde19375cb data/peanutcraft/advancement/recipes/food/peanut_butter.json
 6eea1b1199656ce0282c7261cb81de0d1229c00d data/peanutcraft/advancement/recipes/food/peanut_butter_bread.json
 92243f5fc66f02d8eec213c26803f592f35ca221 data/peanutcraft/advancement/recipes/food/peanut_pie.json
-c3ce428fcaa96f060128b05111064cd9c1af779d data/peanutcraft/recipe/peanut_bread.json
-3d1aaa7e90afbfb3e2e3b5a66f5a0bb86fa7277e data/peanutcraft/recipe/peanut_butter.json
-ec8bcdbdf531b012d375f1c3a04cf226c33bdf67 data/peanutcraft/recipe/peanut_butter_bread.json
-0a939c4c9018e48be3b49d83d8f9618f20b37d92 data/peanutcraft/recipe/peanut_pie.json
+ac303f39c8069013fcadd7715c92bb96702e7b9c data/peanutcraft/recipe/peanut_bread.json
+cc5f199ec2e0e9679df31e939bc45ccf0db0eef1 data/peanutcraft/recipe/peanut_butter.json
+1f675ec38aa1369aa35cb1e95ad875ab317fdf8d data/peanutcraft/recipe/peanut_butter_bread.json
+107c0101bd91446654d94824a8b78d9105a37237 data/peanutcraft/recipe/peanut_pie.json
