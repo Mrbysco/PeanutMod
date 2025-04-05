@@ -1,1 +1,1 @@
-* Initial update to 1.21
+* Add the peanut crop to the expected block and item tags
