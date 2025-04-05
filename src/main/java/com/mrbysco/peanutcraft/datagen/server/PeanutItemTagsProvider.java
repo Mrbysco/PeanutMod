@@ -28,6 +28,7 @@ public class PeanutItemTagsProvider extends ItemTagsProvider {
 	protected void addTags(Provider provider) {
 		this.tag(CROPS_PEANUT).add(ModRegistry.PEANUT.get());
 		this.tag(Items.CROPS).addTag(CROPS_PEANUT);
+		this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS).add(ModRegistry.PEANUT_SEEDS.get());
 	}
 
 	private static TagKey<Item> commonTag(String name) {
