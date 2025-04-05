@@ -9,8 +9,6 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
-import net.minecraft.client.data.models.blockstates.Variant;
-import net.minecraft.client.data.models.blockstates.VariantProperties;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.data.PackOutput;
@@ -36,24 +34,32 @@ public class PeanutModelProvider extends ModelProvider {
 	}
 
 	public void createCropBlock(BlockModelGenerators blockModels, Block cropBlock, Property<Integer> ageProperty, int... ageToVisualStageMapping) {
+		blockModels.registerSimpleFlatItemModel(cropBlock.asItem());
 		if (ageProperty.getPossibleValues().size() != ageToVisualStageMapping.length) {
 			throw new IllegalArgumentException();
 		} else {
 			Int2ObjectMap<ResourceLocation> int2objectmap = new Int2ObjectOpenHashMap<>();
 			ExtendedModelTemplate cropTemplate = ModelTemplates.CROP.extend().renderType("cutout").build();
-			PropertyDispatch propertydispatch = PropertyDispatch.property(ageProperty)
-					.generate(
-							p_388091_ -> {
-								int i = ageToVisualStageMapping[p_388091_];
-								ResourceLocation resourcelocation = int2objectmap.computeIfAbsent(
-										i, p_387534_ -> blockModels.createSuffixedVariant(cropBlock, "_stage" + i,
-												cropTemplate, TextureMapping::crop)
-								);
-								return Variant.variant().with(VariantProperties.MODEL, resourcelocation);
-							}
+			blockModels.blockStateOutput
+					.accept(
+							MultiVariantGenerator.dispatch(cropBlock)
+									.with(
+											PropertyDispatch.initial(ageProperty)
+													.generate(
+															p_408977_ -> {
+																int i = ageToVisualStageMapping[p_408977_];
+																return blockModels.plainVariant(
+																		int2objectmap.computeIfAbsent(
+																				i,
+																				p_387308_ -> blockModels.createSuffixedVariant(
+																						cropBlock, "_stage" + p_387308_, cropTemplate, TextureMapping::crop
+																				)
+																		)
+																);
+															}
+													)
+									)
 					);
-			blockModels.registerSimpleFlatItemModel(cropBlock.asItem());
-			blockModels.blockStateOutput.accept(MultiVariantGenerator.multiVariant(cropBlock).with(propertydispatch));
 		}
 	}
 }
