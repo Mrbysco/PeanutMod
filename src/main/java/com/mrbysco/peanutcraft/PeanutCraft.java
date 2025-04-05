@@ -1,8 +1,10 @@
 package com.mrbysco.peanutcraft;
 
 import com.mrbysco.peanutcraft.init.ModRegistry;
+import com.mrbysco.peanutcraft.village.VillageCompat;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,5 +18,7 @@ public class PeanutCraft {
 		ModRegistry.ITEMS.register(eventBus);
 		ModRegistry.CREATIVE_MODE_TABS.register(eventBus);
 		ModRegistry.GLM.register(eventBus);
+
+		NeoForge.EVENT_BUS.addListener(VillageCompat::modifyVillageStructures);
 	}
 }

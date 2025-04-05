@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class PeanutCropBlock extends CropBlock {
 	private static final VoxelShape[] SHAPES = new VoxelShape[]{
@@ -26,11 +27,13 @@ public class PeanutCropBlock extends CropBlock {
 		super(properties);
 	}
 
+	@NotNull
 	@Override
 	public ItemLike getBaseSeedId() {
 		return ModRegistry.PEANUT_SEEDS.get();
 	}
 
+	@NotNull
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		return SHAPES[state.getValue(this.getAgeProperty())];

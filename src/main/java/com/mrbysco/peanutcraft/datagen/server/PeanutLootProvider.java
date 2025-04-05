@@ -16,6 +16,7 @@ import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Set;
@@ -29,7 +30,7 @@ public class PeanutLootProvider extends LootTableProvider {
 	}
 
 	@Override
-	protected void validate(WritableRegistry<LootTable> writableregistry, ValidationContext validationcontext, ProblemReporter.Collector problemreporter$collector) {
+	protected void validate(@NotNull WritableRegistry<LootTable> writableregistry, @NotNull ValidationContext validationcontext, @NotNull ProblemReporter.Collector problemreporter$collector) {
 		super.validate(writableregistry, validationcontext, problemreporter$collector);
 	}
 
@@ -48,6 +49,7 @@ public class PeanutLootProvider extends LootTableProvider {
 			this.add(ModRegistry.PEANUT_CROP.get(), (block) -> createCropDrops(ModRegistry.PEANUT_CROP.get(), ModRegistry.PEANUT.get(), ModRegistry.PEANUT_SEEDS.get(), peanutCropConditionBuilder));
 		}
 
+		@NotNull
 		@Override
 		protected Iterable<Block> getKnownBlocks() {
 			return (Iterable<Block>) ModRegistry.BLOCKS.getEntries().stream().map(holder -> (Block) holder.get())::iterator;

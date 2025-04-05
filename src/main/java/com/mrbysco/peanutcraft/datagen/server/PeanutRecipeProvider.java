@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,7 +22,7 @@ public class PeanutRecipeProvider extends RecipeProvider {
 	}
 
 	@Override
-	protected void buildRecipes(RecipeOutput recipeOutput) {
+	protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
 		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModRegistry.PEANUT_BREAD.get())
 				.pattern("#P#")
 				.define('#', Tags.Items.CROPS_WHEAT)
