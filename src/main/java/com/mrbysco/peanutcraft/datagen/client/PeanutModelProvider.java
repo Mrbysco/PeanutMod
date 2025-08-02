@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
+import org.jetbrains.annotations.NotNull;
 
 public class PeanutModelProvider extends ModelProvider {
 	public PeanutModelProvider(PackOutput output) {
@@ -24,7 +25,7 @@ public class PeanutModelProvider extends ModelProvider {
 	}
 
 	@Override
-	protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+	protected void registerModels(@NotNull BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
 		createCropBlock(blockModels, ModRegistry.PEANUT_CROP.get(), BlockStateProperties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
 		itemModels.generateFlatItem(ModRegistry.PEANUT.get(), ModelTemplates.FLAT_ITEM);
 		itemModels.generateFlatItem(ModRegistry.PEANUT_PIE.get(), ModelTemplates.FLAT_ITEM);
@@ -48,11 +49,11 @@ public class PeanutModelProvider extends ModelProvider {
 													.generate(
 															p_408977_ -> {
 																int i = ageToVisualStageMapping[p_408977_];
-																return blockModels.plainVariant(
+																return BlockModelGenerators.plainVariant(
 																		int2objectmap.computeIfAbsent(
 																				i,
-																				p_387308_ -> blockModels.createSuffixedVariant(
-																						cropBlock, "_stage" + p_387308_, cropTemplate, TextureMapping::crop
+																				stage -> blockModels.createSuffixedVariant(
+																						cropBlock, "_stage" + stage, cropTemplate, TextureMapping::crop
 																				)
 																		)
 																);

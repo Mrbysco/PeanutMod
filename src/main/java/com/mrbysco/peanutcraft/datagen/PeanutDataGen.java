@@ -16,7 +16,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public class PeanutDataGen {
 
 	@SubscribeEvent
@@ -31,7 +31,7 @@ public class PeanutDataGen {
 
 		PeanutBlockTagsProvider blockTagProvider;
 		generator.addProvider(true, blockTagProvider = new PeanutBlockTagsProvider(packOutput, lookupProvider));
-		generator.addProvider(true, new PeanutItemTagsProvider(packOutput, lookupProvider, blockTagProvider));
+		generator.addProvider(true, new PeanutItemTagsProvider(packOutput, lookupProvider));
 
 		generator.addProvider(true, new PeanutLanguageProvider(packOutput));
 		generator.addProvider(true, new PeanutModelProvider(packOutput));

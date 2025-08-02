@@ -5,21 +5,18 @@ import com.mrbysco.peanutcraft.init.ModRegistry;
 import com.mrbysco.peanutcraft.init.ModTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags.Items;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
 
 public class PeanutItemTagsProvider extends ItemTagsProvider {
-	public PeanutItemTagsProvider(PackOutput packOutput, CompletableFuture<Provider> lookupProvider,
-	                         TagsProvider<Block> blockTagProvider) {
-		super(packOutput, lookupProvider, blockTagProvider.contentsGetter(), PeanutCraft.MOD_ID);
+	public PeanutItemTagsProvider(PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
+		super(packOutput, lookupProvider, PeanutCraft.MOD_ID);
 	}
 
 	@Override
