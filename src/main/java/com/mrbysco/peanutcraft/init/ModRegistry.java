@@ -30,7 +30,7 @@ public class ModRegistry {
 
 	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> PEANUT_SEEDS_DROPS = GLM.register("peanut_seeds_drops", GrassDrops.CODEC);
 	public static final DeferredBlock<PeanutCropBlock> PEANUT_CROP = BLOCKS.registerBlock("peanut_crop", (properties) ->
-			new PeanutCropBlock(properties.noCollission().randomTicks().strength(0.0F).sound(SoundType.CROP)), Block.Properties.ofFullCopy(Blocks.WHEAT));
+			new PeanutCropBlock(properties.noCollision().randomTicks().strength(0.0F).sound(SoundType.CROP)), () -> Block.Properties.ofFullCopy(Blocks.WHEAT));
 
 	public static final DeferredItem<Item> PEANUT_SEEDS = ITEMS.registerItem("peanut_seeds", (properties) -> new BlockItem(PEANUT_CROP.get(), properties.useItemDescriptionPrefix()));
 	public static final DeferredItem<Item> PEANUT = ITEMS.registerItem("peanut", (properties) -> new Item(properties.food(ModFood.PEANUT)));
