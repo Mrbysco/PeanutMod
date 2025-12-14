@@ -3,7 +3,7 @@ package com.mrbysco.peanutcraft.village;
 import com.mrbysco.peanutcraft.init.ModRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.AlwaysTrueTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
@@ -25,24 +25,24 @@ public class VillageCompat {
 				new ProcessorRule(new RandomBlockMatchTest(Blocks.WHEAT, 0.1F), AlwaysTrueTest.INSTANCE, ModRegistry.PEANUT_CROP.get().defaultBlockState())
 		));
 
-		addNewRuleToProcessorList(ResourceLocation.tryParse("minecraft:farm_plains"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("minecraft:farm_savanna"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("minecraft:farm_snowy"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("minecraft:farm_taiga"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("minecraft:farm_desert"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("minecraft:farm_plains"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("minecraft:farm_savanna"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("minecraft:farm_snowy"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("minecraft:farm_taiga"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("minecraft:farm_desert"), cropProcessor, processorListRegistry);
 
 		// Can target other mod's processor lists
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/badlands/crop_replacement"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/birch/crop_randomizer"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/dark_forest/crop_randomizer"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/giant_taiga/crop_randomizer"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/jungle/crop_randomizer"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/mountains/crop_randomizer"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/oak/crop_randomizer"), cropProcessor, processorListRegistry);
-		addNewRuleToProcessorList(ResourceLocation.tryParse("repurposed_structures:villages/swamp/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/badlands/crop_replacement"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/birch/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/dark_forest/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/giant_taiga/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/jungle/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/mountains/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/oak/crop_randomizer"), cropProcessor, processorListRegistry);
+		addNewRuleToProcessorList(Identifier.tryParse("repurposed_structures:villages/swamp/crop_randomizer"), cropProcessor, processorListRegistry);
 	}
 
-	private static void addNewRuleToProcessorList(ResourceLocation targetProcessorList, StructureProcessor processorToAdd, Registry<StructureProcessorList> processorListRegistry) {
+	private static void addNewRuleToProcessorList(Identifier targetProcessorList, StructureProcessor processorToAdd, Registry<StructureProcessorList> processorListRegistry) {
 		processorListRegistry.getOptional(targetProcessorList)
 				.ifPresent(processorList -> {
 					List<StructureProcessor> newSafeList = new ArrayList<>(processorList.list());

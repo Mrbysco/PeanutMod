@@ -12,7 +12,7 @@ import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -39,7 +39,7 @@ public class PeanutModelProvider extends ModelProvider {
 		if (ageProperty.getPossibleValues().size() != ageToVisualStageMapping.length) {
 			throw new IllegalArgumentException();
 		} else {
-			Int2ObjectMap<ResourceLocation> int2objectmap = new Int2ObjectOpenHashMap<>();
+			Int2ObjectMap<Identifier> int2objectmap = new Int2ObjectOpenHashMap<>();
 			ExtendedModelTemplate cropTemplate = ModelTemplates.CROP.extend().renderType("cutout").build();
 			blockModels.blockStateOutput
 					.accept(
@@ -47,8 +47,8 @@ public class PeanutModelProvider extends ModelProvider {
 									.with(
 											PropertyDispatch.initial(ageProperty)
 													.generate(
-															p_408977_ -> {
-																int i = ageToVisualStageMapping[p_408977_];
+															age -> {
+																int i = ageToVisualStageMapping[age];
 																return BlockModelGenerators.plainVariant(
 																		int2objectmap.computeIfAbsent(
 																				i,

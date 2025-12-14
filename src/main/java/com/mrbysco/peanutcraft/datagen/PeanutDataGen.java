@@ -29,8 +29,7 @@ public class PeanutDataGen {
 		generator.addProvider(true, new PeanutLootProvider(packOutput, lookupProvider));
 		generator.addProvider(true, new PeanutRecipeProvider.Runner(packOutput, lookupProvider));
 
-		PeanutBlockTagsProvider blockTagProvider;
-		generator.addProvider(true, blockTagProvider = new PeanutBlockTagsProvider(packOutput, lookupProvider));
+		generator.addProvider(true, new PeanutBlockTagsProvider(packOutput, lookupProvider));
 		generator.addProvider(true, new PeanutItemTagsProvider(packOutput, lookupProvider));
 
 		generator.addProvider(true, new PeanutLanguageProvider(packOutput));

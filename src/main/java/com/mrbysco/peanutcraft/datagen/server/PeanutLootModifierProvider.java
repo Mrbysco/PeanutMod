@@ -28,14 +28,14 @@ public class PeanutLootModifierProvider extends GlobalLootModifierProvider {
 				Blocks.FERN,
 				Blocks.LARGE_FERN
 		);
-		for(var block : blockList) {
+		for (var block : blockList) {
 			String path = BuiltInRegistries.BLOCK.getKey(block).getPath();
 			addLootModifier("peanut_seeds_drops_" + path, block);
 		}
 	}
 
 	private void addLootModifier(String name, Block block) {
-		add(name, new GrassDrops(new LootItemCondition[] {
+		add(name, new GrassDrops(new LootItemCondition[]{
 				LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).build(),
 				LootItemRandomChanceCondition.randomChance(0.1f).build()
 		}));
