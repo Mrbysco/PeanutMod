@@ -40,7 +40,6 @@ public class PeanutModelProvider extends ModelProvider {
 			throw new IllegalArgumentException();
 		} else {
 			Int2ObjectMap<Identifier> int2objectmap = new Int2ObjectOpenHashMap<>();
-			ExtendedModelTemplate cropTemplate = ModelTemplates.CROP.extend().renderType("cutout").build();
 			blockModels.blockStateOutput
 					.accept(
 							MultiVariantGenerator.dispatch(cropBlock)
@@ -53,7 +52,7 @@ public class PeanutModelProvider extends ModelProvider {
 																		int2objectmap.computeIfAbsent(
 																				i,
 																				stage -> blockModels.createSuffixedVariant(
-																						cropBlock, "_stage" + stage, cropTemplate, TextureMapping::crop
+																						cropBlock, "_stage" + stage, ModelTemplates.CROP, TextureMapping::crop
 																				)
 																		)
 																);

@@ -15,12 +15,12 @@ Just a mod about peanuts
 [[dependencies.peanutcraft]]
 modId="minecraft"
 type="REQUIRED"
-versionRange="[1.21.11,1.22)"
+versionRange="[26.1.1,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.peanutcraft]]
 modId="neoforge"
 type="required"
-versionRange="[21.11.0-beta,)"
+versionRange="[26.1.1.0-alpha,)"
 ordering="NONE"
 side="BOTH"

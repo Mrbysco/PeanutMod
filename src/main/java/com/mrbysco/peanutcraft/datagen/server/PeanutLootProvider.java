@@ -4,15 +4,11 @@ import com.mrbysco.peanutcraft.blocks.PeanutCropBlock;
 import com.mrbysco.peanutcraft.init.ModRegistry;
 import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.WritableRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -27,11 +23,6 @@ public class PeanutLootProvider extends LootTableProvider {
 		super(packOutput, Set.of(), List.of(
 				new SubProviderEntry(PeanutBlocks::new, LootContextParamSets.BLOCK)
 		), lookupProvider);
-	}
-
-	@Override
-	protected void validate(@NotNull WritableRegistry<LootTable> writableregistry, @NotNull ValidationContext validationcontext, @NotNull ProblemReporter.Collector problemreporter$collector) {
-		super.validate(writableregistry, validationcontext, problemreporter$collector);
 	}
 
 	private static class PeanutBlocks extends BlockLootSubProvider {

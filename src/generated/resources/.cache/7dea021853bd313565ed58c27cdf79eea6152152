@@ -1,4 +1,4 @@
-// 1.21.11	2025-12-14T17:09:29.9209677	Model Definitions - peanutcraft
+// 26.1.2	2026-04-19T15:35:54.409907	Model Definitions - peanutcraft
 480081e4d95a1bdc5458b52d838dc9af576d061c assets/peanutcraft/blockstates/peanut_crop.json
 04482ee98e47d9de74ee3623b65f10b15f2a0533 assets/peanutcraft/items/peanut.json
 ffe68566bb7f8c2a2ff2b6800d87faf8afbccc51 assets/peanutcraft/items/peanut_bread.json
@@ -6,10 +6,10 @@ f14010575a81f106e541b7ac8637e10dd6b775f3 assets/peanutcraft/items/peanut_butter.
 fc79abfe4bc3bc0f58d64670d383c06ba9f3d550 assets/peanutcraft/items/peanut_butter_bread.json
 4d48f0ec8878aa5a6104ce65940b3b683f77a7f6 assets/peanutcraft/items/peanut_pie.json
 677d384f87df3cf70a6b75a71d7e39dbcf8c46d9 assets/peanutcraft/items/peanut_seeds.json
-50c3b816f8ee61172e9feb5fa1860e7ea17d50d8 assets/peanutcraft/models/block/peanut_crop_stage0.json
-0ef46fd775171c302c1895252847b12f77f68792 assets/peanutcraft/models/block/peanut_crop_stage1.json
-3bf1131dc7f056b93fb7bc181ff1ba3195b609a1 assets/peanutcraft/models/block/peanut_crop_stage2.json
-c43709e706004781da97a4612028ae6ee8cc14df assets/peanutcraft/models/block/peanut_crop_stage3.json
+e9b9df51eb8af666cd59fcef044013acf987440b assets/peanutcraft/models/block/peanut_crop_stage0.json
+3a26a2bac3bc4078dd0402d436fc09190d36aea2 assets/peanutcraft/models/block/peanut_crop_stage1.json
+cd753a0fdef64b0b36128defa062264d44e6ebca assets/peanutcraft/models/block/peanut_crop_stage2.json
+cbc8a8a0f5f5f11e296b75629b11f957ab51f0d6 assets/peanutcraft/models/block/peanut_crop_stage3.json
 a0b78e14d9e7a1b8202b5e859e5e8ead8da32988 assets/peanutcraft/models/item/peanut.json
 2d61d52f3cdee056d7de79c3de42ee36f2323b7f assets/peanutcraft/models/item/peanut_bread.json
 476de9e64a04c74b3ba6bad996df32a7f7001ed4 assets/peanutcraft/models/item/peanut_butter.json
