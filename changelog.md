@@ -1,1 +1,1 @@
-* Initial update to 26.1.2
+* Update NeoForge support (Requires **26.1.2.21-beta** or above)
