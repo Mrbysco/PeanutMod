@@ -38,6 +38,6 @@ public class PeanutLootModifierProvider extends GlobalLootModifierProvider {
 		add(name, new GrassDrops(new LootItemCondition[]{
 				LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).build(),
 				LootItemRandomChanceCondition.randomChance(0.1f).build()
-		}));
+		}, 1000));
 	}
 }

@@ -16,8 +16,8 @@ public class GrassDrops extends LootModifier {
 	public static final Supplier<MapCodec<GrassDrops>> CODEC = Suppliers.memoize(() ->
 			RecordCodecBuilder.mapCodec(inst -> codecStart(inst).apply(inst, GrassDrops::new)));
 
-	public GrassDrops(LootItemCondition[] lootConditions) {
-		super(lootConditions);
+	public GrassDrops(LootItemCondition[] lootConditions, int priority) {
+		super(lootConditions, priority);
 	}
 
 	@Override
