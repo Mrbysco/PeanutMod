@@ -2,7 +2,7 @@ package com.mrbysco.peanutcraft.datagen.server;
 
 import com.mrbysco.peanutcraft.blocks.PeanutCropBlock;
 import com.mrbysco.peanutcraft.init.ModRegistry;
-import net.minecraft.advancements.criterion.StatePropertiesPredicate;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;

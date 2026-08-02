@@ -17,6 +17,6 @@ public class PeanutBlockTagsProvider extends BlockTagsProvider {
 
 	@Override
 	protected void addTags(Provider provider) {
-		this.tag(BlockTags.CROPS).add(ModRegistry.PEANUT_CROP.get());
+		this.tag(BlockTags.CROPS).add(ModRegistry.PEANUT_CROP.getKey());
 	}
 }

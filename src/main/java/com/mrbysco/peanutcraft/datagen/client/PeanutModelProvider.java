@@ -16,7 +16,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import org.jetbrains.annotations.NotNull;
 
 public class PeanutModelProvider extends ModelProvider {
@@ -40,26 +39,10 @@ public class PeanutModelProvider extends ModelProvider {
 			throw new IllegalArgumentException();
 		} else {
 			Int2ObjectMap<Identifier> int2objectmap = new Int2ObjectOpenHashMap<>();
-			blockModels.blockStateOutput
-					.accept(
-							MultiVariantGenerator.dispatch(cropBlock)
-									.with(
-											PropertyDispatch.initial(ageProperty)
-													.generate(
-															age -> {
-																int i = ageToVisualStageMapping[age];
-																return BlockModelGenerators.plainVariant(
-																		int2objectmap.computeIfAbsent(
-																				i,
-																				stage -> blockModels.createSuffixedVariant(
-																						cropBlock, "_stage" + stage, ModelTemplates.CROP, TextureMapping::crop
-																				)
-																		)
-																);
-															}
-													)
-									)
-					);
+			blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(cropBlock).with(PropertyDispatch.initial(ageProperty).generate(age -> {
+				int i = ageToVisualStageMapping[age];
+				return BlockModelGenerators.plainVariant(int2objectmap.computeIfAbsent(i, stage -> blockModels.createSuffixedVariant(cropBlock, "_stage" + stage, ModelTemplates.CROP, TextureMapping::crop)));
+			})));
 		}
 	}
 }
